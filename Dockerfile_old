@@ -1,0 +1,6 @@
+FROM tomcat:8.5.35-jre8
+COPY ./tomcat-users.xml /usr/local/tomcat/conf
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "vim"]
+CMD ["catalina.sh", "run"]
+COPY ./target/spring-mvc-ecom-site-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps

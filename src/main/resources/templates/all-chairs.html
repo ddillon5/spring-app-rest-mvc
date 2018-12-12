@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+ 
+    <title>Ecomm - example.  list Chairs</title>
+ <style type="text/css" media="screen">
+
+table{
+border-collapse:collapse;
+border:1px solid #FF0000;
+}
+
+table td{
+border:1px solid #FF0000;
+}
+</style>
+    
+</head>
+
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(chairs)}">
+        <h2>Chair List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>View</th>
+                <th>Edit</th>
+            </tr>
+            <tr th:each="chair : ${chairs}">
+                <td th:text="${chair.id}"><a href="/chair/${chair.id}">Id</a></td>
+                
+                <td   th:text="${chair.description}">description</td>
+                <td align="right" th:text="${chair.price}">price</td>
+                <td th:text="${chair.color}">color</td>
+                <td th:text="${chair.size}">size</td>
+                <td><a th:href="${ '/ecomm-app/chair/' + chair.id}">View</a></td>
+                <td><a th:href="${'/ecomm-app/chair/edit/' + chair.id}">Edit</a></td>
+            </tr>
+        </table>
+ 		<div><a href="#" th:href="@{/ecomm-app/chair/new}">New Chair</a></div>
+ 		<div><a href="#" th:href="@{/ecomm-app/}">HOME </a></div>
+ 		
+    </div>
+</div>
+</body>

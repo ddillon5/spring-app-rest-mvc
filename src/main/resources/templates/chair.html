@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+<title>Sample Ecomm-site</title>
+<style type="text/css" media="screen">
+.lineup {
+	text-align: left
+}
+
+.lineup>div {
+	vertical-align: top;
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+	<h2>Chair Details</h2>
+	<div>
+		<form>
+			<div class="  lineup " >
+				Chair Id:
+
+				<div th:text="${chair.id}">Chair Id</div>
+			</div>
+
+			<div class="  lineup ">
+				Description:	
+				<div  th:text="${chair.description}">description</div>
+			</div>
+			<div class="  lineup">
+				Price:
+				<div  th:text="${chair.price}">Price</div>
+			</div>
+			<div class="  lineup">
+				Color:
+				<div  th:text="${chair.color}">Color</div>
+			</div>
+			<div class="  lineup">
+				Size
+				<div th:text="${chair.size}">Size</div>
+			</div>
+		</form>
+
+		<a href="#" th:href="@{/ecomm-app/}">HOME </a>
+	</div>
+	
+
+
+</body>
